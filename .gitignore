@@ -46,3 +46,15 @@ wp-config.php
 # Note: If you wish to whitelist themes,
 # uncomment the next line
 #/wp-content/themes
+
+.idea
+/wp-content/plugins/advanced-custom-fields/
+/wp-content/plugins/akismet/
+/wp-content/plugins/all-in-one-wp-migration/
+/wp-content/plugins/google-analytics-for-wordpress/
+/wp-content/plugins/hostinger/
+/wp-content/plugins/litespeed-cache/
+/wp-content/plugins/optinmonster/
+/wp-content/plugins/post-type-switcher/
+/wp-content/plugins/real-media-library-lite/
+/wp-content/plugins/wpforms-lite/
