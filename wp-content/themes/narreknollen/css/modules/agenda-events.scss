@@ -1,0 +1,31 @@
+.event-container{
+  padding: 1rem .5rem;
+  @include atMedium {
+    display: flex;
+    padding: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .all-events{
+    @include atMedium{
+      display: flex;
+      justify-content: center;
+    }
+    .event-summary{
+      @include atMedium{
+        width: 610px;
+        max-width: 50%;
+      }
+      &__img{
+        @include atMedium {
+          width: 30%;
+        }
+      }
+      &__content{
+        @include atMedium {
+          width: 70%;
+        }
+      }
+    }
+  }
+}
