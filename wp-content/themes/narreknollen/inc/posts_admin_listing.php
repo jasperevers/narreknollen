@@ -1,6 +1,6 @@
 <?php
-// Add post thumbnail column to admin listing for prinsenprinsessen
-function add_post_custom_columns_prinsenprinsessen($columns)
+// Add post thumbnail column to admin listing for prinsen_prinsessen
+function add_post_custom_columns_prinsen_prinsessen($columns)
 {
     $new_columns = array();
     foreach ($columns as $column_key => $column_value) {
@@ -13,20 +13,20 @@ function add_post_custom_columns_prinsenprinsessen($columns)
     return $new_columns;
 }
 
-add_filter('manage_prinsenprinsessen_posts_columns', 'add_post_custom_columns_prinsenprinsessen');
+add_filter('manage_prinsen_prinsessen_posts_columns', 'add_post_custom_columns_prinsen_prinsessen');
 
 
 // Make post custom field columns sortable
-function make_post_custom_columns_sortable_prinsenprinsessen($columns)
+function make_post_custom_columns_sortable_prinsen_prinsessen($columns)
 {
     $columns['years'] = 'years';
     return $columns;
 }
 
-add_filter('manage_edit-prinsenprinsessen_sortable_columns', 'make_post_custom_columns_sortable_prinsenprinsessen');
+add_filter('manage_edit-prinsen_prinsessen_sortable_columns', 'make_post_custom_columns_sortable_prinsen_prinsessen');
 
 
-// Display post thumbnail and sorting_year in the column for prinsenprinsessen
+// Display post thumbnail and sorting_year in the column for prinsen_prinsessen
 function display_post_thumbnail_column($column_name, $post_id)
 {
     if ($column_name == 'post_thumbnail') {
@@ -48,10 +48,10 @@ function display_post_thumbnail_column($column_name, $post_id)
 
 }
 
-add_action('manage_prinsenprinsessen_posts_custom_column', 'display_post_thumbnail_column', 10, 2);
+add_action('manage_prinsen_prinsessen_posts_custom_column', 'display_post_thumbnail_column', 10, 2);
 
 // Modify the query to sort posts by event_date or event_time_of_day
-function modify_admin_query_to_sort_by_custom_columns_prinsenprinsessen($query)
+function modify_admin_query_to_sort_by_custom_columns_prinsen_prinsessen($query)
 {
     if (!is_admin()) {
         return;
@@ -66,7 +66,7 @@ function modify_admin_query_to_sort_by_custom_columns_prinsenprinsessen($query)
 
 }
 
-add_action('pre_get_posts', 'modify_admin_query_to_sort_by_custom_columns_prinsenprinsessen');
+add_action('pre_get_posts', 'modify_admin_query_to_sort_by_custom_columns_prinsen_prinsessen');
 
 
 // Add post custom field columns to admin listing for agenda
