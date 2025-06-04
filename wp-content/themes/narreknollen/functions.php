@@ -135,5 +135,11 @@ function custom_theme_customizer_settings($wp_customize) {
 
 add_action('customize_register', 'custom_theme_customizer_settings');
 
-
+function custom_template_for_prinsen_prinsessen($archive_template) {
+    if (is_post_type_archive('prinsen_prinsessen')) {
+        $archive_template = dirname(__FILE__) . '/archive-prinsen_prinsessen.php';
+    }
+    return $archive_template;
+}
+add_filter('archive_template', 'custom_template_for_prinsen_prinsessen');
 
