@@ -1,24 +1,40 @@
 <?php
 // create custom post type for prinsen and prinsessen
 function create_posttype_prinsen_prinsessen() {
+    // Debug line - remove after testing
+    error_log('Registering prinsen_prinsessen post type');
 
-    register_post_type( 'prinsen/prinsessen',
-        // CPT Options
+    register_post_type('prinsen_prinsessen',
         array(
             'labels' => array(
-                'name' => __( 'Prinsen/Prinsessen' ),
-                'singular_name' => __( 'Prins/Prinses' )
+                'name' => __('Prinsen/Prinsessen'),
+                'singular_name' => __('Prins/Prinses'),
+                'all_items' => __('Alle Prinsen/Prinsessen'),
+                'archives' => __('Prinsen en Prinsessen Archief'),
+                'add_new' => __('Nieuwe toevoegen'),
+                'add_new_item' => __('Nieuwe Prins/Prinses toevoegen'),
+                'edit_item' => __('Prins/Prinses bewerken'),
             ),
             'public' => true,
             'has_archive' => true,
             'show_in_rest' => true,
             'menu_icon' => 'dashicons-businessman',
-            'supports' => array( 'title', 'editor', 'author', 'thumbnail' ),
-//            'rewrite' => array( 'slug' => 'prinsenenprinsessen' ),
-
+            'supports' => array('title', 'editor', 'author', 'thumbnail', 'excerpt'),
+            'rewrite' => array(
+                'slug' => 'prinsen-en-prinsessen',
+                'with_front' => false
+            ),
         )
     );
 }
+
+// Also add this debug function temporarily
+function debug_template_loading() {
+    global $wp_query;
+    error_log('Current post type: ' . get_post_type());
+    error_log('Is archive: ' . is_archive());
+}
+add_action('template_redirect', 'debug_template_loading');
 // Hooking up the function to theme setup
 add_action( 'init', 'create_posttype_prinsen_prinsessen' );
 
@@ -66,6 +82,7 @@ function create_posttype_agenda() {
     );
 
 }
+
 // Hooking up the function to theme setup
 add_action( 'init', 'create_posttype_agenda' );
 
@@ -91,5 +108,3 @@ function create_posttype_news() {
 }
 // Hooking up the function to theme setup
 add_action( 'init', 'create_posttype_news' );
-
-
