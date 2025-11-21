@@ -1,7 +1,4 @@
 <?php
-// Temporary debug line - remove after testing
-echo '<!-- Custom archive template is loading -->';
-
 get_header();
 ?>
 
@@ -25,9 +22,19 @@ get_header();
 
 <div class="container page-section">
     <div class="generic-content">
-        <?php if (have_posts()) : ?>
+        <?php
+        $args = array(
+            'post_type' => 'prinsen_prinsessen',
+            'posts_per_page' => -1, // Show all posts
+            'meta_key' => 'sorting_year',
+            'orderby' => 'meta_value_num',
+            'order' => 'DESC'
+        );
+        $query = new WP_Query($args);
+
+        if ($query->have_posts()) : ?>
             <div class="row row-cols-1 row-cols-lg-2 g-4">
-                <?php while (have_posts()) : the_post();
+                <?php while ($query->have_posts()) : $query->the_post();
                     $id = get_the_ID();
                     $img = has_post_thumbnail($id) ? get_the_post_thumbnail_url() : 'https://via.placeholder.com/200x300';
                     ?>
@@ -53,14 +60,7 @@ get_header();
                     </div>
                 <?php endwhile; ?>
             </div>
-
-            <?php
-            the_posts_pagination(array(
-                'prev_text' => __('&laquo; Vorige'),
-                'next_text' => __('Volgende &raquo;'),
-            ));
-            ?>
-
+            <?php wp_reset_postdata(); ?>
         <?php else : ?>
             <p><?php _e('Er zijn geen prinsen of prinsessen om te laten zien'); ?></p>
         <?php endif; ?>
