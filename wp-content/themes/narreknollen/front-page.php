@@ -58,10 +58,10 @@
 <div class="container prins-container">
     <div class="d-flex justify-content-center flex-column ">
         <div class="d-flex">
-            <h1>Prins Rene I</h1>
-            <h1>Hofdame Irene</h1>
+            <h1>Prins Martijn I</h1>
+            <h1>Adjudant Martin</h1>
         </div>
-        <img style="height: 100%;" src="<?= content_url("/uploads/2024/11/IMG_7568b-scaled.jpg") ?>"
+        <img style="height: 100%;" src="<?= content_url("/uploads/2025/11/MG_8104b-scaled.jpg") ?>"
              alt="Wie wordt de 50ste hoogheid van de Narre Kollen?">
     </div>
 </div>
