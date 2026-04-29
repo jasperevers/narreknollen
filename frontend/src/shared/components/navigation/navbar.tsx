@@ -12,30 +12,51 @@ export default function Navbar() {
         return () => window.removeEventListener("scroll", onScroll);
     }, []);
 
-    const toggleMenu = () => setOpen((prev) => !prev);
-
-    const closeMenu = () => setOpen(false);
+    // body scroll lock wanneer menu open is
+    useEffect(() => {
+        document.body.style.overflow = open ? "hidden" : "auto";
+    }, [open]);
 
     return (
-        <nav className={`navbar ${scrolled ? "navbar--scrolled" : ""}`}>
-            <div className="navbar__container">
+        <>
+            <nav className={`navbar ${scrolled ? "navbar--scrolled" : ""}`}>
+                <div className="navbar__container">
 
-                <div className="navbar__logo">
-                    Narre Knollen
+                    <div className="navbar__logo">
+                        Narre Knollen
+                    </div>
+
+                    <button
+                        className="navbar__toggle"
+                        onClick={() => setOpen((p) => !p)}
+                    >
+                        ☰
+                    </button>
+
+                    <div className="navbar__links desktop">
+                        <NavLink to="/">Home</NavLink>
+                        <NavLink to="/events">Events</NavLink>
+                    </div>
+
                 </div>
+            </nav>
 
-                {/* hamburger button */}
-                <button className="navbar__toggle" onClick={toggleMenu}>
-                    ☰
-                </button>
+            {/* MOBILE OVERLAY MENU */}
+            <div className={`mobileMenu ${open ? "open" : ""}`}>
 
-                {/* menu */}
-                <div className={`navbar__links ${open ? "is-open" : ""}`}>
-                    <NavLink to="/" onClick={closeMenu}>Home</NavLink>
-                    <NavLink to="/events" onClick={closeMenu}>Events</NavLink>
+                {/* dim background */}
+                <div
+                    className="mobileMenu__overlay"
+                    onClick={() => setOpen(false)}
+                />
+
+                {/* menu panel */}
+                <div className="mobileMenu__panel">
+                    <NavLink to="/" onClick={() => setOpen(false)}>Home</NavLink>
+                    <NavLink to="/events" onClick={() => setOpen(false)}>Events</NavLink>
                 </div>
 
             </div>
-        </nav>
+        </>
     );
 }
