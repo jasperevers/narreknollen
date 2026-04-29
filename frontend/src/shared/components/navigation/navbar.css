@@ -1,0 +1,61 @@
+/* ===== Navbar overlay ===== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    z-index: 1000;
+
+    background: rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(8px);
+
+    transition: background 0.5s ease, backdrop-filter 0.5s ease;
+}
+
+.navbar--scrolled {
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(14px);
+}
+
+/* inner layout */
+.navbar__container {
+    width: min(1100px, 92%);
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 18px 0;
+}
+
+/* logo */
+.navbar__logo {
+    font-weight: 800;
+    color: var(--primary);
+    font-size: 18px;
+}
+
+/* links */
+.navbar__links {
+    display: flex;
+    gap: 20px;
+}
+
+.navlink {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 500;
+    opacity: 0.8;
+    transition: 0.2s ease;
+}
+
+.navlink:hover {
+    opacity: 1;
+    color: var(--accent);
+}
+
+.navlink.active {
+    color: var(--primary);
+}
