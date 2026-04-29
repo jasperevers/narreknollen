@@ -1,10 +1,11 @@
-import type {ReactNode} from "react";
+import { Outlet } from "react-router-dom";
+import Navbar from "../shared/components/navigation/navbar.tsx";
 
-export default function MainLayout({ children }: { children: ReactNode }) {
+export default function MainLayout() {
     return (
         <>
-            {/* hier komt later je navbar */}
-            <main>{children}</main>
+            <Navbar />
+            <main><Outlet /></main>
             <footer style={{ textAlign: "center", padding: "20px" }}>
                 © 2026 De Narre Knollen
             </footer>

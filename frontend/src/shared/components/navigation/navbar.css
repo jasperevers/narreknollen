@@ -1,0 +1,148 @@
+/* ===== NAVBAR BASE ===== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+
+    background: rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    transition: 0.3s ease;
+}
+
+.navbar--scrolled {
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(14px);
+}
+
+/* ===== CONTAINER ===== */
+.navbar__container {
+    width: min(1100px, 92%);
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 16px 0;
+}
+
+/* ===== LOGO ===== */
+.navbar__logo {
+    font-weight: 800;
+    color: var(--primary);
+}
+
+/* ===== DESKTOP LINKS ===== */
+.desktop {
+    display: flex;
+    gap: 20px;
+}
+
+.desktop a {
+    color: var(--text);
+    text-decoration: none;
+    opacity: 0.8;
+    transition: 0.2s;
+}
+
+.desktop a.active {
+    color: var(--primary);
+    opacity: 1;
+}
+
+.desktop a:hover {
+    opacity: 1;
+}
+
+/* ===== HAMBURGER ===== */
+.navbar__toggle {
+    display: none;
+    font-size: 28px;
+    background: none;
+    border: none;
+    color: var(--text);
+    cursor: pointer;
+}
+
+/* ===== MOBILE MENU OVERLAY ===== */
+.mobileMenu {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+
+    pointer-events: none;
+}
+
+/* dim background */
+.mobileMenu__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+    opacity: 0;
+    transition: 0.25s ease;
+}
+
+/* panel */
+.mobileMenu__panel {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    transform: translateY(-10px);
+    opacity: 0;
+    transition: 0.25s ease;
+}
+.mobileMenu__panel a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+    opacity: 0.85;
+    transition: 0.2s;
+}
+
+.mobileMenu__panel a:hover {
+    opacity: 1;
+}
+.mobileMenu__panel a.active {
+    color: var(--primary);
+    opacity: 1;
+}
+
+/* open state */
+.mobileMenu.open {
+    pointer-events: auto;
+}
+
+.mobileMenu.open .mobileMenu__overlay {
+    opacity: 1;
+}
+
+.mobileMenu.open .mobileMenu__panel {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .navbar__toggle {
+        display: block;
+    }
+
+    .desktop {
+        display: none;
+    }
+}
