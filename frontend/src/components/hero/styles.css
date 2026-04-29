@@ -1,7 +1,5 @@
 .hero {
-    height: 100vh; /* full screen */
     width: 100%;
-    background-image: url("https://denarreknollen.nl/wp-content/uploads/2025/11/Groep-2025-2026-scaled.jpg"); /* pas pad aan */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
