@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html <?php language_attributes() ?>>
 <head>
-    <link rel="icon" type="image/png" href="<?= get_theme_file_uri('/assets/images/logo128x128.png') ?>">
+    <link rel="icon" type="image/png" href="<?= content_url('/uploads/2025/11/logo128x128.png') ?>">
     <meta charset="<?php bloginfo('charset') ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
