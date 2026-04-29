@@ -30,8 +30,6 @@
 
 /* overlay */
 .hero__overlay {
-    position: absolute;
-    inset: 0;
     background: rgba(0, 0, 0, 0.7);
 
     display: flex;
@@ -40,7 +38,6 @@
 }
 
 .hero__content {
-    position: relative;
     text-align: center;
     max-width: 800px;
     padding: 20px;
