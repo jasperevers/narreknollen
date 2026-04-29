@@ -49,6 +49,11 @@
     transition: 0.2s;
 }
 
+.desktop a.active {
+    color: var(--primary);
+    opacity: 1;
+}
+
 .desktop a:hover {
     opacity: 1;
 }
