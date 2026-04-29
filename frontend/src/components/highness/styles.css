@@ -1,0 +1,70 @@
+.highness {
+    text-align: center;
+    padding: 40px 0;
+}
+
+/* TITLE */
+.highness__title {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+/* SUBTITLE */
+.highness__subtitle {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 24px;
+}
+
+/* IMAGE */
+.highness__imageWrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.highness__image {
+    width: min(520px, 90%);
+    border-radius: 20px;
+    border: 2px solid rgba(255, 215, 0, 0.4);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.highness__image:hover {
+    transform: scale(1.02);
+    box-shadow: 0 15px 60px rgba(255, 215, 0, 0.15);
+}
+
+.highness__info {
+    margin-top: 18px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.highness__person {
+    padding: 10px 16px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 215, 0, 0.12);
+    min-width: 140px;
+    transition: 0.2s ease;
+}
+
+.highness__person:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255, 215, 0, 0.35);
+}
+
+.highness__roleLabel {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 4px;
+}
+
+.highness__name {
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffd700;
+}
