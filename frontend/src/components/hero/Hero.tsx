@@ -1,11 +1,13 @@
 import "./styles.css";
 import type { ReactNode } from "react";
 
+type HeroVariant = "full" | "large" | "medium" | "small";
+
 type HeroProps = {
     title: string;
     subtitle?: string;
     backgroundImage: string;
-    height?: string; // bv "100vh", "60vh"
+    variant?: HeroVariant;
     actions?: ReactNode;
 };
 
@@ -13,14 +15,13 @@ export default function Hero({
                                  title,
                                  subtitle,
                                  backgroundImage,
-                                 height = "100vh",
+                                 variant = "full",
                                  actions,
                              }: HeroProps) {
     return (
         <section
-            className="hero"
+            className={`hero hero--${variant}`}
             style={{
-                height,
                 backgroundImage: `url(${backgroundImage})`,
             }}
         >

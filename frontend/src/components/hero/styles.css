@@ -11,11 +11,29 @@
     color: white;
 }
 
-/* donkere overlay voor leesbaarheid */
+/* Variants */
+.hero--full {
+    height: 100dvh;
+}
+
+.hero--large {
+    height: 80dvh;
+}
+
+.hero--medium {
+    height: 60dvh;
+}
+
+.hero--small {
+    height: 40dvh;
+}
+
+/* overlay */
 .hero__overlay {
     position: absolute;
     inset: 0;
     background: rgba(0, 0, 0, 0.7);
+
     display: flex;
     align-items: center;
     justify-content: center;
