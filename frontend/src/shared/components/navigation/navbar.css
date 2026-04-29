@@ -33,7 +33,7 @@
 /* ===== LOGO ===== */
 .navbar__logo {
     font-weight: 800;
-    color: white;
+    color: var(--primary);
 }
 
 /* ===== DESKTOP LINKS ===== */
@@ -43,7 +43,7 @@
 }
 
 .desktop a {
-    color: white;
+    color: var(--text);
     text-decoration: none;
     opacity: 0.8;
     transition: 0.2s;
@@ -59,7 +59,7 @@
     font-size: 28px;
     background: none;
     border: none;
-    color: white;
+    color: var(--text);
     cursor: pointer;
 }
 
@@ -101,7 +101,7 @@
     transition: 0.25s ease;
 }
 .mobileMenu__panel a {
-    color: white;
+    color: var(--text);
     text-decoration: none;
     font-size: 20px;
     font-weight: 600;
