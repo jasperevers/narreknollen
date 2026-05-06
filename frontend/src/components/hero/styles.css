@@ -1,7 +1,5 @@
 .hero {
-    height: 100vh; /* full screen */
     width: 100%;
-    background-image: url("https://denarreknollen.nl/wp-content/uploads/2025/11/Groep-2025-2026-scaled.jpg"); /* pas pad aan */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -13,10 +11,25 @@
     color: white;
 }
 
-/* donkere overlay voor leesbaarheid */
+/* Variants */
+.hero--full {
+    height: 100dvh;
+}
+
+.hero--large {
+    height: 80dvh;
+}
+
+.hero--medium {
+    height: 60dvh;
+}
+
+.hero--small {
+    height: 40dvh;
+}
+
+/* overlay */
 .hero__overlay {
-    position: absolute;
-    inset: 0;
     background: rgba(0, 0, 0, 0.7);
     display: flex;
     align-items: center;
@@ -24,7 +37,6 @@
 }
 
 .hero__content {
-    position: relative;
     text-align: center;
     max-width: 800px;
     padding: 20px;
