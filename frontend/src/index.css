@@ -27,24 +27,6 @@ body {
     margin: 0 auto;
 }
 
-/* ===== Hero ===== */
-.hero {
-    padding: 120px 0 80px;
-    text-align: center;
-}
-
-.hero h1 {
-    font-size: 56px;
-    font-weight: 800;
-    letter-spacing: -1px;
-}
-
-.hero p {
-    margin-top: 12px;
-    color: var(--muted);
-    font-size: 18px;
-}
-
 /* ===== Buttons ===== */
 .btn {
     display: inline-block;

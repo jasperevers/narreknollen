@@ -13,7 +13,7 @@ export default function Home() {
                 title="De Narre Knollen"
                 subtitle="Het mooiste carnaval van Soest begint hier"
                 backgroundImage="https://denarreknollen.nl/wp-content/uploads/2025/11/Groep-2025-2026-scaled.jpg"
-                height="100vh"
+                variant="full"
                 actions={
                     <>
                         <NavLink to="/events" className="btn">
