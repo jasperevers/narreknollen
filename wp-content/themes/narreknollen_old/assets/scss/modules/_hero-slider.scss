@@ -1,0 +1,84 @@
+@import "../base/variables"; // pad eventueel aanpassen naar waar je variables.scss staat
+
+.hero-slider {
+  position: relative;
+  overflow: hidden;
+  padding: 1.5rem 0;
+
+  .glide__track {
+    position: relative;
+  }
+
+  .glide__slides {
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    min-height: 250px;
+  }
+
+  .hero-slider__slide {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    inset: 0;
+    transition: opacity 0.5s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $mainBlue;
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+
+  .hero-slider__slide--active {
+    opacity: 1;
+    visibility: visible;
+    position: relative;
+  }
+
+  .hero-slider__slide--hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .slider__bullets {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  .slider__bullet {
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    border: none;
+    background: lighten($gray, 25%);
+    cursor: pointer;
+    padding: 0;
+    transition: background-color 0.25s ease, transform 0.25s ease;
+
+    &:hover {
+      background: $mainYellow;
+      transform: scale(1.1);
+    }
+  }
+
+  .slider__bullet--active {
+    background: $darkOrange;
+  }
+}
+
+// Optioneel: iets meer hoogte op grotere schermen
+@include atMedium {
+  .hero-slider {
+    .glide__slides {
+      min-height: 350px;
+    }
+  }
+}
