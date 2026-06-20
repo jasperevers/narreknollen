@@ -1,0 +1,68 @@
+.btn {
+    display: inline-block;
+    padding: 12px 20px;
+    border-radius: $radius-md;
+    background: $color-primary;
+    color: #000;
+    font-weight: 600;
+    font-size: 1rem;
+    font-family: $font-primary;
+    text-decoration: none;
+    border: 0;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+
+    &:hover,
+    &:focus {
+        background: $color-primary-dark;
+        color: #000;
+        transform: translateY(-2px);
+        text-decoration: none;
+    }
+}
+
+.btn--secondary {
+    background: transparent;
+    border: 2px solid $color-primary;
+    color: $color-primary;
+    padding: 10px 20px;
+
+    &:hover,
+    &:focus {
+        background: $color-primary;
+        color: #000;
+    }
+}
+
+.btn--blue {
+    background-color: $color-blue;
+    color: #000;
+
+    &:hover,
+    &:focus {
+        background-color: $color-secondary-dark;
+        color: #000;
+    }
+}
+
+.btn--yellow {
+    background-color: $color-yellow;
+    color: #000;
+
+    &:hover,
+    &:focus {
+        background-color: $color-primary-dark;
+        color: #000;
+    }
+}
+
+.btn--red {
+    background-color: $color-red;
+    color: $color-white;
+
+    &:hover,
+    &:focus {
+        background-color: darken($color-red, 8%);
+        color: $color-white;
+    }
+}

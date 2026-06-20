@@ -1,119 +1,123 @@
 <?php get_header(); ?>
 
-<div class="page-banner">
-    <?php
-    $header_background_image_id = get_theme_mod('header_background_image');
-    if ($header_background_image_id) {
-        $header_background_image_url = wp_get_attachment_url($header_background_image_id);
-        echo '<div class="page-banner__bg-image" style="background-image: url(' . esc_url($header_background_image_url) . ');">';
-        echo '</div>';
-    } else {
-        echo '<div class="page-banner__bg-image" style="background-image: url(' . content_url("/uploads/2023/02/Groepsfoto-scaled.jpg") . ')"></div>';
-    }
+<?php
+$header_background_image_id = get_theme_mod('header_background_image');
+$bg_url = $header_background_image_id
+    ? esc_url(wp_get_attachment_url($header_background_image_id))
+    : esc_url(content_url('/uploads/2025/11/Groep-2025-2026-scaled.jpg'));
+?>
 
-    ?>
-
-    <div class="page-banner__content container t-center c-white">
-
-        <h1 class="headline headline--large">Welkom!</h1>
-        <br>
-        <br>
-        <h2 class="headline headline--medium">bij SKV De Narre Knollen</h2>
-        <h3 class="headline headline--small">soest</h3>
-        <br>
-        <br>
+<!-- HERO -->
+<section class="hero" style="background-image: url('<?= $bg_url ?>');">
+    <div class="hero__overlay">
+        <div class="hero__content">
+            <h1 class="hero__title">De Narre Knollen</h1>
+            <p class="hero__subtitle">Het mooiste carnaval van Soest begint hier</p>
+            <div class="hero__actions">
+                <a href="<?= esc_url(site_url('/agenda')) ?>" class="btn">Bekijk events</a>
+            </div>
+        </div>
     </div>
-</div>
-<div class="news-container" style="display: none;">
-    <h2 class="headline headline--small-plus t-center">Nieuws</h2>
-    <div class="all-news">
+</section>
+
+<!-- HUIDIGE HOOGHEID -->
+<section class="section container">
+    <div class="highness">
+        <h2 class="highness__title">Huidige hoogheid</h2>
+        <p class="highness__subtitle">Onze regerende hoogheid van dit seizoen</p>
+
+        <div class="highness__imageWrapper">
+            <img
+                src="<?= esc_url(content_url('/uploads/2025/11/MG_8104b-scaled.jpg')) ?>"
+                alt="Huidige hoogheid"
+                class="highness__image"
+            >
+        </div>
+
+        <div class="highness__info">
+            <div class="highness__person">
+                <p class="highness__roleLabel">Prins</p>
+                <p class="highness__name">Martijn I</p>
+            </div>
+            <div class="highness__person">
+                <p class="highness__roleLabel">Adjudant</p>
+                <p class="highness__name">Martin</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- OVER ONS -->
+<section class="section container">
+    <h2>Over ons</h2>
+    <p class="section__subtitle">
+        De Narre Knollen zijn dé carnavalsvereniging van Soest.
+        Samen vieren wij elk jaar een onvergetelijk feest!
+    </p>
+
+    <div class="grid mt-md">
+        <div class="card">
+            <h3>Feesten</h3>
+            <p>De gezelligste avonden van het jaar</p>
+        </div>
+        <div class="card">
+            <h3>Traditie</h3>
+            <p>Al jaren een begrip in Knollendam</p>
+        </div>
+        <div class="card">
+            <h3>Samen</h3>
+            <p>Carnaval vier je samen!</p>
+        </div>
+    </div>
+</section>
+
+<!-- EVENEMENTEN -->
+<section class="section container">
+    <h2>Evenementen</h2>
+
+    <div class="grid mt-md">
         <?php
         $today = date('Ymd');
-        $homepageNews = new WP_Query(
-            [
-                'posts_per_page' => 2,
-                'post_type' => 'nieuws',
-                'meta_key' => 'news_date',
-                'orderby' => 'meta_value_num',
-                'order' => 'ASC',
-                'meta_query' => [
-                    [
-                        'key' => 'news_date',
-                        'compare' => '>=',
-                        'value' => $today,
-                        'type' => 'numeric'
-                    ]
-
-                ]
-            ]);
-        while ($homepageNews->have_posts()) {
-            $homepageNews->the_post();
-            get_template_part('template-parts/content', 'news');
-        }
-        ?>
-    </div>
-    <p class="t-center no-margin"><a href="nieuws" class="btn btn--yellow">Nieuws overzicht</a></p>
-</div>
-
-<div class="container prins-container">
-    <div class="d-flex justify-content-center flex-column ">
-        <div class="d-flex">
-            <h1>Prins Martijn I</h1>
-            <h1>Adjudant Martin</h1>
-        </div>
-        <img style="height: 100%;" src="<?= content_url("/uploads/2025/11/MG_8104b-scaled.jpg") ?>"
-             alt="Wie wordt de 50ste hoogheid van de Narre Kollen?">
-    </div>
-</div>
-
-<div class="event-container container">
-    <h2 class="headline headline--small-plus t-center">Agenda</h2>
-    <div class="all-events">
-
-
-        <?php
-        $homepageEvents = new WP_Query(
-            [
-                'posts_per_page' => 4,
-                'post_type' => 'agenda',
-                'meta_key' => 'event_date',
-                'orderby' => 'meta_value_num',
-                'order' => 'ASC',
-                'meta_query' => [
-                    [
-                        'key' => 'event_date',
-                        'compare' => '>=',
-                        'value' => $today,
-                        'type' => 'numeric'
-                    ]
-
-                ]
-            ]);
+        $homepageEvents = new WP_Query([
+            'posts_per_page' => 3,
+            'post_type'      => 'agenda',
+            'meta_key'       => 'event_date',
+            'orderby'        => 'meta_value_num',
+            'order'          => 'ASC',
+            'meta_query'     => [[
+                'key'     => 'event_date',
+                'compare' => '>=',
+                'value'   => $today,
+                'type'    => 'numeric',
+            ]],
+        ]);
 
         while ($homepageEvents->have_posts()) {
             $homepageEvents->the_post();
-            get_template_part('template-parts/content', 'event');
-        }
-        ?>
-        <p class="t-center no-margin"><a href="agenda" class="btn btn--blue">Jaar agenda</a></p>
-    </div>
-</div>
-<div class="container hero-slider" data-slide-count="<?php echo get_theme_mod('slider_count_setting', 3); ?>">
-    <div data-glide-el="track" class="glide__track">
-        <div class="glide__slides">
-            <!-- Your slides will be dynamically generated by the JavaScript code -->
-            <?php
-            for ($i = 1; $i <= get_theme_mod('slider_count_setting', 3); $i++) {
-                echo '<div class="hero-slider__slide">';
-                echo '<img src="' . get_theme_mod('slider_image_' . $i) . '" alt="slide' . $i . '">';
-                echo '</div>';
-            }
+            $event_date = get_post_meta(get_the_ID(), 'event_date', true);
+            $location   = get_post_meta(get_the_ID(), 'event_location', true);
+            $date_fmt   = $event_date ? date_i18n('j M', strtotime($event_date)) : '';
             ?>
-        </div>
-        <div class="slider__bullets glide__bullets" data-glide-el="controls[nav]"></div>
+            <a href="<?= esc_url(get_the_permalink()) ?>" class="card card--link">
+                <h3><?= get_the_title() ?></h3>
+                <?php if ($location): ?>
+                    <p class="card__location"><?= esc_html($location) ?></p>
+                <?php endif; ?>
+                <?php if ($date_fmt): ?>
+                    <p class="card__date"><?= esc_html($date_fmt) ?></p>
+                <?php endif; ?>
+                <p class="card__summary"><?= wp_trim_words(get_the_excerpt(), 15) ?></p>
+                <span class="card__link">Meer info →</span>
+            </a>
+            <?php
+        }
+        wp_reset_postdata();
+        ?>
     </div>
-</div>
 
-<?php get_footer();
+    <p class="t-center mt-md">
+        <a href="<?= esc_url(site_url('/agenda')) ?>" class="btn">Jaar agenda</a>
+    </p>
+</section>
 
-?>
+<?php get_footer(); ?>

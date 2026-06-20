@@ -16,6 +16,11 @@ Text Domain: narreknollen
 @import "base/baseline";
 @import "base/utility-classes";
 
-// Modules
-@import "modules/hero-slider";
+// Components
+@import "modules/buttons";
+@import "modules/header";
+@import "modules/footer";
+@import "modules/page-banner";
+@import "modules/cards";
 @import "modules/agenda-events";
+@import "modules/front-page";

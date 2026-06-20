@@ -1,7 +1,6 @@
 .container {
-  max-width: 1300px;
+  width: min(1100px, 92%);
   margin: 0 auto;
-  padding: 0 16px;
   position: relative;
 }
 
@@ -16,6 +15,7 @@
 }
 
 .min-list {
+  @include reset-list;
   padding: 0;
   margin: 0;
 }
@@ -34,7 +34,7 @@
   padding-bottom: 1.6rem;
 }
 
-@include atSmall {
+@include respond(sm) {
   .p-top-large {
     padding-top: 3.5rem;
   }
@@ -46,6 +46,31 @@
 .no-margin {
   margin: 0;
 }
+
+.mt-sm {
+  margin-top: $spacing-sm;
+}
+
+.mt-md {
+  margin-top: $spacing-md;
+}
+
+.mt-lg {
+  margin-top: $spacing-lg;
+}
+
+.mb-sm {
+  margin-bottom: $spacing-sm;
+}
+
+.mb-md {
+  margin-bottom: $spacing-md;
+}
+
+.mb-lg {
+  margin-bottom: $spacing-lg;
+}
+
 .nu {
   text-decoration: none;
 }
@@ -92,4 +117,45 @@
 
 .hide {
   display: none;
+}
+
+.hide-mobile {
+  display: none;
+
+  @include respond(md) {
+    display: block;
+  }
+}
+
+.hide-desktop {
+  display: block;
+
+  @include respond(md) {
+    display: none;
+  }
+}
+
+.c-white {
+  color: $color-white;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  a {
+    color: $color-white;
+  }
+}
+
+.bg-light {
+  background-color: $color-light-bg;
+}
+
+.group::after {
+  content: "";
+  display: table;
+  clear: both;
 }
