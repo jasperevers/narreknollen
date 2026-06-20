@@ -2,7 +2,7 @@
 get_header();
 ?>
 
-<div class="page-banner">
+<section class="page-banner">
     <?php
     $header_background_image_id = get_theme_mod('header_background_image');
     if ($header_background_image_id) {
@@ -21,10 +21,10 @@ get_header();
             <?php endif; ?>
         </div>
     </div>
-</div>
+</section>
 
-<div class="container container--narrow page-section">
-    <div class="generic-content">
+<main class="container container--narrow page-section">
+    <section class="generic-content">
         <div class="row">
             <div class="col-md-4">
                 <?php 
@@ -45,8 +45,8 @@ get_header();
                 ?>
             </div>
         </div>
-    </div>
-</div>
+    </section>
+</main>
 
 <?php
 get_footer();
