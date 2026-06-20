@@ -1,0 +1,15 @@
+{
+  "name": "narreknollen-theme",
+  "version": "1.0.0",
+  "description": "WordPress theme for Narreknollen",
+  "scripts": {
+    "dev": "sass --watch assets/scss/style.scss:build/style-index.css --style=expanded",
+    "build": "sass assets/scss/style.scss:build/style-index.css --style=compressed --no-source-map"
+  },
+  "keywords": [],
+  "author": "Jasper_evers",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.63.6"
+  }
+}

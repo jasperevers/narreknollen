@@ -58,3 +58,5 @@ wp-config.php
 /wp-content/plugins/post-type-switcher/
 /wp-content/plugins/real-media-library-lite/
 /wp-content/plugins/wpforms-lite/
+/wp-content/themes/narreknollen_old/build/
+/wp-content/themes/narreknollen/build/
