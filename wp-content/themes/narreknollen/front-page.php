@@ -56,15 +56,15 @@ $bg_url = $header_background_image_id
     </p>
 
     <div class="grid mt-md">
-        <div class="card">
+        <div class="custom-card">
             <h3>Feesten</h3>
             <p>De gezelligste avonden van het jaar</p>
         </div>
-        <div class="card">
+        <div class="custom-card">
             <h3>Traditie</h3>
             <p>Al jaren een begrip in Knollendam</p>
         </div>
-        <div class="card">
+        <div class="custom-card">
             <h3>Samen</h3>
             <p>Carnaval vier je samen!</p>
         </div>
@@ -98,16 +98,16 @@ $bg_url = $header_background_image_id
             $location   = get_post_meta(get_the_ID(), 'event_location', true);
             $date_fmt   = $event_date ? date_i18n('j M', strtotime($event_date)) : '';
             ?>
-            <a href="<?= esc_url(get_the_permalink()) ?>" class="card card--link">
+            <a href="<?= esc_url(get_the_permalink()) ?>" class="custom-card custom-card--link">
                 <h3><?= get_the_title() ?></h3>
                 <?php if ($location): ?>
-                    <p class="card__location"><?= esc_html($location) ?></p>
+                    <p class="custom-card__location"><?= esc_html($location) ?></p>
                 <?php endif; ?>
                 <?php if ($date_fmt): ?>
-                    <p class="card__date"><?= esc_html($date_fmt) ?></p>
+                    <p class="custom-card__date"><?= esc_html($date_fmt) ?></p>
                 <?php endif; ?>
-                <p class="card__summary"><?= wp_trim_words(get_the_excerpt(), 15) ?></p>
-                <span class="card__link">Meer info →</span>
+                <p class="custom-card__summary"><?= wp_trim_words(get_the_excerpt(), 15) ?></p>
+                <span class="custom-card__link">Meer info →</span>
             </a>
             <?php
         }

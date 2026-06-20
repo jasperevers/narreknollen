@@ -2,7 +2,7 @@
 get_header();
 ?>
 
-<div class="page-banner">
+<section class="page-banner">
     <?php
     $header_background_image_id = get_theme_mod('header_background_image');
     if ($header_background_image_id) {
@@ -18,9 +18,9 @@ get_header();
         <div class="page-banner__intro">
         </div>
     </div>
-</div>
+</section>
 
-<div class="container page-section">
+<section class="container page-section">
     <div class="generic-content">
         <?php
         $args = array(
@@ -39,24 +39,40 @@ get_header();
                     $img = has_post_thumbnail($id) ? get_the_post_thumbnail_url() : 'https://via.placeholder.com/200x300';
                     ?>
                     <div class="col">
-                        <div class="card">
-                            <div class="row no-gutters">
+                        <article class="highness-card">
+                            <div class="row g-0 h-100">
                                 <div class="col-sm-5">
-                                    <img class="card-img" src="<?= $img; ?>" alt="<?php the_title(); ?>" loading="lazy">
+                                    <img
+                                            class="highness-card__image"
+                                            src="<?= esc_url($img); ?>"
+                                            alt="<?php the_title_attribute(); ?>"
+                                            loading="lazy"
+                                    >
                                 </div>
-                                <div class="col-sm-6">
-                                    <div class="card-body">
-                                        <h5 class="card-title">
-                                            <bold><?php the_title(); ?></bold>
-                                        </h5>
-                                        <p class="card-text"><?= get_the_excerpt(); ?></p>
-                                        <p class="card-text"><?= get_field("years", $id) ?></p>
-                                        <a href="<?php the_permalink(); ?>"
-                                           class="btn btn-primary"><?php the_title(); ?></a>
+
+                                <div class="col-sm-7">
+                                    <div class="highness-card__body">
+                                        <h3 class="highness-card__title">
+                                            <?php the_title(); ?>
+                                        </h3>
+
+                                        <p class="highness-card__excerpt">
+                                            <?= esc_html(get_the_excerpt()); ?>
+                                        </p>
+
+                                        <?php if (get_field("years", $id)) : ?>
+                                            <p class="highness-card__years">
+                                                <?= esc_html(get_field("years", $id)); ?>
+                                            </p>
+                                        <?php endif; ?>
+
+                                        <a href="<?php the_permalink(); ?>" class="highness-card__button">
+                                            Lees meer
+                                        </a>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </article>
                     </div>
                 <?php endwhile; ?>
             </div>
@@ -65,7 +81,7 @@ get_header();
             <p><?php _e('Er zijn geen prinsen of prinsessen om te laten zien'); ?></p>
         <?php endif; ?>
     </div>
-</div>
+</section>
 
 <?php
 get_footer();
