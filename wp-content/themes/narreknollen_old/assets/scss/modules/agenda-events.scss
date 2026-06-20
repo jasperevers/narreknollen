@@ -1,28 +1,28 @@
 .event-container{
   padding: 1rem .5rem;
-  @include atMedium {
+  @include respond(md) {
     display: flex;
     padding: 40px;
     flex-wrap: wrap;
     justify-content: center;
   }
   .all-events{
-    @include atMedium{
+    @include respond(md){
       display: flex;
       justify-content: center;
     }
     .event-summary{
-      @include atMedium{
+      @include respond(md){
         width: 610px;
         max-width: 50%;
       }
       &__img{
-        @include atMedium {
+        @include respond(md) {
           width: 30%;
         }
       }
       &__content{
-        @include atMedium {
+        @include respond(md) {
           width: 70%;
         }
       }

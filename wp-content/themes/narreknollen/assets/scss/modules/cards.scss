@@ -1,0 +1,34 @@
+.card {
+  overflow: hidden;
+  border-radius: $radius-lg;
+  background-color: $color-white;
+  box-shadow: $shadow-sm;
+}
+
+.card__image {
+  height: $card-image-height;
+  background-color: $color-light-bg;
+
+  img {
+    @include image-cover;
+  }
+}
+
+.card__content {
+  padding: $spacing-md;
+}
+
+.card__title {
+  margin-bottom: $spacing-xs;
+  font-size: 1.5rem;
+}
+
+.card__meta {
+  margin-bottom: $spacing-sm;
+  color: $color-text-light;
+  font-size: 0.9rem;
+}
+
+.card__text {
+  color: $color-text;
+}

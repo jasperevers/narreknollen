@@ -34,7 +34,7 @@
   padding-bottom: 1.6rem;
 }
 
-@include atSmall {
+@include respond(sm) {
   .p-top-large {
     padding-top: 3.5rem;
   }

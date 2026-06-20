@@ -1,0 +1,55 @@
+@use "sass:color";
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.75rem 1.25rem;
+  border: 0;
+  border-radius: $radius-md;
+  color: $color-white;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  transition:
+          background-color 0.2s ease,
+          color 0.2s ease,
+          transform 0.2s ease;
+
+  &:hover,
+  &:focus {
+    color: $color-white;
+    transform: translateY(-1px);
+  }
+}
+
+.btn--blue {
+  background-color: $color-blue;
+
+  &:hover,
+  &:focus {
+    background-color: $color-primary-dark;
+  }
+}
+
+.btn--yellow {
+  color: $color-text;
+  background-color: $color-yellow;
+
+  &:hover,
+  &:focus {
+    color: $color-text;
+    background-color: $color-secondary-dark;
+  }
+}
+
+.btn--red {
+  background-color: $color-red;
+
+  &:hover,
+  &:focus {
+    background-color: color.adjust($color-red, $lightness: -8%);
+  }
+}

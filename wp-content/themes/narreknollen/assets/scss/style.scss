@@ -7,7 +7,7 @@ Description: Custom WordPress theme for Narreknollen
 Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: LICENSE
-Text Domain: narreknollen_old
+Text Domain: narreknollen
 */
 
 // Base
@@ -16,6 +16,12 @@ Text Domain: narreknollen_old
 @import "base/baseline";
 @import "base/utility-classes";
 
-// Modules
-@import "modules/hero-slider";
+// Components
+@import "modules/buttons";
+@import "modules/header";
+@import "modules/footer";
+@import "modules/page-banner";
+@import "modules/cards";
 @import "modules/agenda-events";
+@import "modules/hero-slider";
+@import "modules/front-page";

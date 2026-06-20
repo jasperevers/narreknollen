@@ -1,27 +1,36 @@
 body {
-  color: #333;
-  font-family: "Roboto", sans-serif;
-  overflow-x: hidden;
-  position: relative;
+  margin: 0;
+  color: $color-text;
+  font-family: $font-primary;
+  font-size: 1rem;
+  line-height: 1.6;
+  background-color: $color-white;
 }
 
 img {
+  display: block;
   max-width: 100%;
   height: auto;
 }
 
 a {
-  color: $mainBlue;
+  color: $color-primary;
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  &:hover,
+  &:focus {
+    color: $color-primary-dark;
+  }
 }
 
 a:hover {
   text-decoration: none;
 }
 
-p,
-ul,
-ol {
-  margin: 0 0 1.65em 0;
+p {
+  margin-top: 0;
+  margin-bottom: $spacing-sm;
 }
 
 p,

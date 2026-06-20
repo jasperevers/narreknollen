@@ -75,7 +75,7 @@
 }
 
 // Optioneel: iets meer hoogte op grotere schermen
-@include atMedium {
+@include respond(md) {
   .hero-slider {
     .glide__slides {
       min-height: 350px;

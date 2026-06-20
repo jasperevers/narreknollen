@@ -1,0 +1,69 @@
+.site-header {
+  position: relative;
+  z-index: 20;
+  min-height: $header-height;
+  padding: $spacing-sm 0;
+  background-color: $color-white;
+  box-shadow: $shadow-sm;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $spacing-md;
+  }
+}
+
+.school-logo-text {
+  margin: 0;
+  font-size: 1.4rem;
+
+  a {
+    color: $color-primary;
+    text-decoration: none;
+  }
+
+  strong {
+    color: $color-red;
+  }
+}
+
+.site-header__menu {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+}
+
+.main-navigation {
+  ul {
+    @include reset-list;
+
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+  }
+
+  a {
+    color: $color-text;
+    font-weight: 700;
+
+    &:hover,
+    &:focus {
+      color: $color-primary;
+    }
+  }
+}
+
+.site-header__search-trigger,
+.site-header__menu-trigger {
+  color: $color-primary;
+  font-size: 1.4rem;
+}
+
+.site-header__menu-trigger {
+  display: block;
+
+  @include respond(md) {
+    display: none;
+  }
+}
