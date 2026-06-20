@@ -1,6 +1,15 @@
-// Colors
+// === CSS Custom Properties ===
+:root {
+    --bg: #120018;
+    --surface: #1c0b24;
+    --primary: #ffd700;
+    --primary-hover: #ffc300;
+    --accent: #00e5ff;
+    --text: #ffffff;
+    --muted: rgba(255, 255, 255, 0.7);
+}
 
-// Main site theme
+// Colors
 $color-primary: #ffd700;
 $color-primary-dark: #ffc300;
 $color-secondary: #00e5ff;
@@ -14,6 +23,7 @@ $color-yellow: #ffd700;
 // Text
 $color-text: #ffffff;
 $color-text-light: rgba(255, 255, 255, 0.7);
+$color-muted: rgba(255, 255, 255, 0.7);
 
 // Base
 $color-white: #ffffff;
@@ -28,12 +38,12 @@ $color-light-bg: #1c0b24;
 $color-border: rgba(255, 255, 255, 0.15);
 
 // Fonts
-$font-primary: "Roboto", Arial, sans-serif;
-$font-heading: "Roboto Condensed", Arial, sans-serif;
+$font-primary: "Inter", system-ui, Arial, sans-serif;
+$font-heading: "Inter", system-ui, Arial, sans-serif;
 
 // Container widths
 $container-small: 760px;
-$container-default: 1140px;
+$container-default: 1100px;
 $container-wide: 1320px;
 
 // Spacing
@@ -52,8 +62,9 @@ $card-image-height: 260px;
 
 // Border radius
 $radius-sm: 4px;
-$radius-md: 10px;
-$radius-lg: 18px;
+$radius-md: 12px;
+$radius-lg: 16px;
+$radius-xl: 20px;
 
 // Shadows
 $shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);

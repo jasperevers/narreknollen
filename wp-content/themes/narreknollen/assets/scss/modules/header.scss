@@ -1,69 +1,158 @@
-.site-header {
-  position: relative;
-  z-index: 20;
-  min-height: $header-height;
-  padding: $spacing-sm 0;
-  background-color: $color-white;
-  box-shadow: $shadow-sm;
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: background 0.3s ease, backdrop-filter 0.3s ease;
 
-  .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: $spacing-md;
-  }
+    &--scrolled {
+        background: rgba(0, 0, 0, 0.65);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+    }
 }
 
-.school-logo-text {
-  margin: 0;
-  font-size: 1.4rem;
+.navbar__container {
+    width: min(1100px, 92%);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+}
 
-  a {
+.navbar__logo {
+    font-weight: 800;
+    font-size: 1.1rem;
     color: $color-primary;
     text-decoration: none;
-  }
 
-  strong {
-    color: $color-red;
-  }
-}
-
-.site-header__menu {
-  display: flex;
-  align-items: center;
-  gap: $spacing-md;
-}
-
-.main-navigation {
-  ul {
-    @include reset-list;
-
-    display: flex;
-    align-items: center;
-    gap: $spacing-md;
-  }
-
-  a {
-    color: $color-text;
-    font-weight: 700;
-
-    &:hover,
-    &:focus {
-      color: $color-primary;
+    &:hover {
+        color: $color-primary-dark;
     }
-  }
 }
 
-.site-header__search-trigger,
-.site-header__menu-trigger {
-  color: $color-primary;
-  font-size: 1.4rem;
+.desktop {
+    ul.nav-links {
+        display: flex;
+        gap: $spacing-md;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        a {
+            color: $color-text;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.2s, color 0.2s;
+
+            &:hover,
+            &:focus {
+                opacity: 1;
+                color: $color-text;
+            }
+        }
+
+        .current-menu-item > a {
+            color: $color-primary;
+            opacity: 1;
+        }
+    }
 }
 
-.site-header__menu-trigger {
-  display: block;
-
-  @include respond(md) {
+.navbar__toggle {
     display: none;
-  }
+    font-size: 28px;
+    background: none;
+    border: none;
+    color: $color-text;
+    cursor: pointer;
+    padding: 4px 8px;
+    line-height: 1;
+}
+
+// Mobile menu overlay
+.mobileMenu {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    pointer-events: none;
+
+    &__overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.35);
+        opacity: 0;
+        transition: opacity 0.25s ease;
+    }
+
+    &__panel {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        transform: translateY(-10px);
+        opacity: 0;
+        transition: transform 0.25s ease, opacity 0.25s ease;
+
+        ul.mobile-nav-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+            margin: 0;
+            padding: 0;
+
+            a {
+                color: $color-text;
+                text-decoration: none;
+                font-size: 20px;
+                font-weight: 600;
+                opacity: 0.85;
+                transition: opacity 0.2s, color 0.2s;
+
+                &:hover {
+                    opacity: 1;
+                }
+            }
+
+            .current-menu-item > a {
+                color: $color-primary;
+                opacity: 1;
+            }
+        }
+    }
+
+    &.open {
+        pointer-events: auto;
+
+        .mobileMenu__overlay {
+            opacity: 1;
+        }
+
+        .mobileMenu__panel {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+}
+
+@media (max-width: $breakpoint-md) {
+    .navbar__toggle {
+        display: block;
+    }
+
+    .desktop {
+        display: none;
+    }
 }
