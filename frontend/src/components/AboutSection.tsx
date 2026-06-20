@@ -8,17 +8,17 @@ export default function AboutSection() {
             </p>
 
             <div className="grid grid-3 mt-6">
-                <div className="card">
+                <div className="custom-card">
                     <h3>🎉 Feesten</h3>
                     <p>De gezelligste avonden van het jaar</p>
                 </div>
 
-                <div className="card">
+                <div className="custom-card">
                     <h3>🎭 Traditie</h3>
                     <p>Al jaren een begrip in Knollendam</p>
                 </div>
 
-                <div className="card">
+                <div className="custom-card">
                     <h3>👥 Samen</h3>
                     <p>Carnaval vier je samen!</p>
                 </div>

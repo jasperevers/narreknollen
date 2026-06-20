@@ -13,6 +13,15 @@
   border-top: 1px solid #ddd;
   margin: 2.5rem 0;
 }
+.page-section {
+  padding: 2.5rem 0;
+}
+
+@include respond(md) {
+  .page-section {
+    padding: 4rem 0;
+  }
+}
 
 .min-list {
   @include reset-list;
@@ -49,6 +58,7 @@
 
 .mt-sm {
   margin-top: $spacing-sm;
+
 }
 
 .mt-md {
@@ -158,4 +168,161 @@
   content: "";
   display: table;
   clear: both;
+}
+
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -0.75rem;
+  margin-right: -0.75rem;
+}
+
+.col,
+[class*="col-"] {
+  width: 100%;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+/* gap utility like Bootstrap g-4 */
+.g-4 {
+  row-gap: 1.5rem;
+}
+
+/* no gutters / no spacing */
+.g-0,
+.no-gutters {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.g-0 > .col,
+.g-0 > [class*="col-"],
+.no-gutters > .col,
+.no-gutters > [class*="col-"] {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* height helper */
+.h-100 {
+  height: 100%;
+}
+
+/* Default: 1 card per row */
+.row-cols-1 > .col {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+/* Small screen and up */
+@include respond(sm) {
+  .col-md-4 {
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+  }
+
+  .col-sm-5 {
+    flex: 0 0 41.666667%;
+    max-width: 41.666667%;
+  }
+
+  .col-sm-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .col-sm-7 {
+    flex: 0 0 58.333333%;
+    max-width: 58.333333%;
+  }
+  .col-md-8 {
+    flex: 0 0 66.666667%;
+    max-width: 66.666667%;
+  }
+
+}
+
+/* Large screen and up: 2 cards per row */
+@include respond(lg) {
+  .row-cols-lg-2 > .col {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+/* =========================
+   Flex utilities
+   ========================= */
+
+.d-flex {
+  display: flex;
+}
+
+.inline-flex {
+  display: inline-flex;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-around {
+  justify-content: space-around;
+}
+
+.align-start {
+  align-items: flex-start;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.align-end {
+  align-items: flex-end;
+}
+
+.align-stretch {
+  align-items: stretch;
+}
+
+.gap-sm {
+  gap: $spacing-sm;
+}
+
+.gap-md {
+  gap: $spacing-md;
+}
+
+.gap-lg {
+  gap: $spacing-lg;
+}
+
+.flex-1 {
+  flex: 1;
 }

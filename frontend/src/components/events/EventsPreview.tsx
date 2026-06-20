@@ -16,21 +16,21 @@ export default function EventsPreview() {
                     <Link
                         key={event.id}
                         to={`/events/${event.id}`}
-                        className="card card--link"
+                        className="custom-card custom-card--link"
                     >
                         <h3>{event.title}</h3>
 
-                        <p className="card__location">
+                        <p className="custom-card__location">
                             Duivenzaaltje, Oostergracht 46 3763 ZL Soest
                         </p>
 
-                        <p className="card__date">{event.date}</p>
+                        <p className="custom-card__date">{event.date}</p>
 
-                        <p className="card__summary">
+                        <p className="custom-card__summary">
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                         </p>
 
-                        <span className="card__link">
+                        <span className="custom-card__link">
               Meer info →
             </span>
                     </Link>

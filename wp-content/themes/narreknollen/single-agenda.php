@@ -1,7 +1,6 @@
 <?php
-get_header();
+get_header()
 ?>
-
 <section class="page-banner">
     <?php
     $header_background_image_id = get_theme_mod('header_background_image');
@@ -22,31 +21,20 @@ get_header();
         </div>
     </div>
 </section>
-
-<main class="container container--narrow page-section">
-    <section class="generic-content">
-        <div class="row">
-            <div class="col-md-4">
-                <?php 
-                if (has_post_thumbnail()) {
-                    the_post_thumbnail('large', ['class' => 'img-fluid']);
-                }
-                ?>
-                <?php if (get_field('function')): ?>
-                    <p><strong>Functie:</strong> <?php echo esc_html(get_field('function')); ?></p>
-                <?php endif; ?>
+    <main class="container container--narrow page-section">
+        <section class="generic-content">
+            <div class="row">
+                <div >
+                    <?php
+                    while(have_posts()) {
+                        the_post();
+                        the_content();
+                    }
+                    ?>
+                </div>
             </div>
-            <div class="col-md-8">
-                <?php
-                while(have_posts()) {
-                    the_post();
-                    the_content();
-                }
-                ?>
-            </div>
-        </div>
-    </section>
-</main>
+        </section>
+    </main>
 
 <?php
 get_footer();
