@@ -60,6 +60,8 @@ function narreknollen_highness_customizer($wp_customize) {
     $wp_customize->add_control(new Narreknollen_People_Control($wp_customize, 'highness_people', array('section' => 'highness_settings')));
     $wp_customize->add_setting('highness_image', array('default' => '', 'sanitize_callback' => 'esc_url_raw'));
     $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'highness_image', array('label' => 'Foto', 'section' => 'highness_settings')));
+    $wp_customize->add_setting('highness_image_size', array('default' => 'medium', 'transport' => 'refresh', 'sanitize_callback' => 'narreknollen_highness_image_size'));
+    $wp_customize->add_control('highness_image_size', array('label' => 'Fotogrootte', 'section' => 'highness_settings', 'type' => 'radio', 'choices' => array('super-small' => 'Super small', 'small' => 'Small', 'medium' => 'Medium', 'large' => 'Large', 'extra-large' => 'Extra large')));
     $wp_customize->add_setting('highness_position', array('default' => 'below', 'sanitize_callback' => 'narreknollen_highness_position'));
     $wp_customize->add_control('highness_position', array('label' => 'Positie van de namen', 'section' => 'highness_settings', 'type' => 'select', 'choices' => array('above' => 'Boven de foto', 'below' => 'Onder de foto')));
 }
@@ -70,4 +72,12 @@ add_action('customize_register', 'narreknollen_highness_customizer');
 
 function narreknollen_sanitize_highness_people_json($value) {
     return wp_json_encode(narreknollen_sanitize_highness_people($value));
+}
+
+function narreknollen_highness_image_size($value) {
+    return in_array($value, array('super-small', 'small', 'medium', 'large', 'extra-large'), true) ? $value : 'medium';
+}
+function narreknollen_highness_image_width() {
+    $widths = array('super-small' => 240, 'small' => 360, 'medium' => 520, 'large' => 760, 'extra-large' => 1040);
+    return $widths[narreknollen_highness_image_size(get_theme_mod('highness_image_size', 'medium'))];
 }

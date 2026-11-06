@@ -32,7 +32,7 @@ $highness_position = narreknollen_highness_position(get_theme_mod('highness_posi
         <?php foreach (array('above', 'below') as $position) : ?>
             <?php if ('below' === $position) : ?>
                 <div class="highness__imageWrapper">
-                    <img src="<?= esc_url($highness_image) ?>" alt="<?= esc_attr(get_theme_mod('highness_image_alt', 'Huidige hoogheid')) ?>" class="highness__image">
+                    <img src="<?= esc_url($highness_image) ?>" alt="<?= esc_attr(get_theme_mod('highness_image_alt', 'Huidige hoogheid')) ?>" class="highness__image" style="width: min(<?= (int) narreknollen_highness_image_width() ?>px, 90%); height: auto;">
                 </div>
             <?php endif; ?>
             <?php if ($highness_position === $position) : ?>
