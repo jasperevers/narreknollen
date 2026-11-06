@@ -7,6 +7,10 @@
             try { people = JSON.parse(people); } catch (e) { people = []; }
         }
         if (!Array.isArray(people)) { people = []; }
+        // Keep editable rows separate from the setting so WordPress detects changes.
+        people = people.map(function (person) {
+            return { role: person.role || '', name: person.name || '' };
+        });
         function save() {
             control.setting.set(people.map(function (person) {
                 return { role: person.role, name: person.name };
