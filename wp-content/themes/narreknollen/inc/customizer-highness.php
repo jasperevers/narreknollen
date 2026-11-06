@@ -35,6 +35,9 @@ function narreknollen_highness_customizer($wp_customize) {
     if (!class_exists('Narreknollen_People_Control')) {
         class Narreknollen_People_Control extends WP_Customize_Control {
             public function render_content() {
+                echo '<input type="hidden" class="highness-people-value" ';
+                $this->link();
+                echo ' value="' . esc_attr(wp_json_encode(narreknollen_highness_people())) . '" />';
                 echo '<span class="customize-control-title">Personen</span><p>Voeg personen toe en vul hun rol en naam in. Een lege naam wordt niet getoond.</p><div class="highness-people-list"></div><button type="button" class="button highness-add-person">+ Persoon toevoegen</button>';
             }
             public function enqueue() {
@@ -53,7 +56,7 @@ function narreknollen_highness_customizer($wp_customize) {
         $wp_customize->add_setting($id, array('default' => $field[1], 'sanitize_callback' => 'sanitize_text_field'));
         $wp_customize->add_control($id, array('label' => $field[0], 'section' => 'highness_settings', 'type' => 'text'));
     }
-    $wp_customize->add_setting('highness_people', array('default' => narreknollen_highness_people(), 'sanitize_callback' => 'narreknollen_sanitize_highness_people'));
+    $wp_customize->add_setting('highness_people', array('default' => wp_json_encode(narreknollen_highness_people()), 'transport' => 'refresh', 'sanitize_callback' => 'narreknollen_sanitize_highness_people_json'));
     $wp_customize->add_control(new Narreknollen_People_Control($wp_customize, 'highness_people', array('section' => 'highness_settings')));
     $wp_customize->add_setting('highness_image', array('default' => '', 'sanitize_callback' => 'esc_url_raw'));
     $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'highness_image', array('label' => 'Foto', 'section' => 'highness_settings')));
@@ -64,3 +67,7 @@ function narreknollen_highness_position($value) {
     return in_array($value, array('above', 'below'), true) ? $value : 'below';
 }
 add_action('customize_register', 'narreknollen_highness_customizer');
+
+function narreknollen_sanitize_highness_people_json($value) {
+    return wp_json_encode(narreknollen_sanitize_highness_people($value));
+}

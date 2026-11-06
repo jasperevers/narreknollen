@@ -1,6 +1,9 @@
 (function ($, api) {
     'use strict';
-    api.control('highness_people', function (control) {
+    api.bind('ready', function () {
+        var control = api.control('highness_people');
+        if (!control) { return; }
+        control.deferred.embedded.done(function () {
         var list = control.container.find('.highness-people-list');
         var people = control.setting.get();
         if (typeof people === 'string') {
@@ -12,9 +15,11 @@
             return { role: person.role || '', name: person.name || '' };
         });
         function save() {
-            control.setting.set(people.map(function (person) {
+            var value = JSON.stringify(people.map(function (person) {
                 return { role: person.role, name: person.name };
             }));
+            control.container.find('.highness-people-value').val(value).trigger('change');
+            control.setting.set(value);
         }
         function render() {
             list.empty();
@@ -45,5 +50,6 @@
             list.children().last().find('input').first().trigger('focus');
         });
         render();
+    });
     });
 })(jQuery, wp.customize);
