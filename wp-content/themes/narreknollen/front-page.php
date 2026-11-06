@@ -37,11 +37,11 @@ $highness_position = narreknollen_highness_position(get_theme_mod('highness_posi
             <?php endif; ?>
             <?php if ($highness_position === $position) : ?>
                 <div class="highness__info"<?= 'above' === $position ? ' style="margin-bottom: 18px;"' : '' ?>>
-                    <?php foreach (array(1 => array('Prins', 'Martijn I'), 2 => array('Adjudant', 'Martin')) as $number => $defaults) : ?>
-                        <?php $name = get_theme_mod('highness_name_' . $number, $defaults[1]); ?>
+                    <?php foreach (narreknollen_highness_people() as $person) : ?>
+                        <?php $name = $person['name']; ?>
                         <?php if ('' !== trim($name)) : ?>
                             <div class="highness__person">
-                                <p class="highness__roleLabel"><?= esc_html(get_theme_mod('highness_role_' . $number, $defaults[0])) ?></p>
+                                <p class="highness__roleLabel"><?= esc_html($person['role']) ?></p>
                                 <p class="highness__name"><?= esc_html($name) ?></p>
                             </div>
                         <?php endif; ?>
